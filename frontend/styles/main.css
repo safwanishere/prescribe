@@ -166,3 +166,5 @@ ul { margin: 0; padding: 0; list-style: none; }
   html { scroll-behavior: auto; }
   .btn { transition: none; }
 }
+
+.red-txt { color: red; }

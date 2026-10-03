@@ -1,0 +1,12 @@
+{
+  "projects": [
+    {
+      "name": "prescribe",
+      "directory": "frontend"
+    },
+    {
+      "name": "prescribe-backend",
+      "directory": "backend/"
+    }
+  ]
+}
