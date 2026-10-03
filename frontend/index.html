@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prescribe — Turn consultation notes into structured data</title>
+  <meta name="description" content="Prescribe reads doctors' consultation notes with OCR and NLP and turns them into clean, structured records.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand">Prescribe</a>
+      <div class="cluster">
+        <a href="login.html" class="btn btn--ghost">Log in</a>
+        <a href="signup.html" class="btn btn--primary">Sign up</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <h1>From handwritten note to structured record in seconds.</h1>
+          <p class="lead">Prescribe reads doctors' consultation notes, scanned or photographed, and pulls out symptoms, diagnoses, medications and follow-ups as clean, searchable data.</p>
+          <div class="cluster">
+            <a href="signup.html" class="btn btn--primary btn--lg">Get started</a>
+            <a href="#how-it-works" class="btn btn--ghost btn--lg">See how it works</a>
+          </div>
+        </div>
+
+        <div class="demo" aria-label="Example of a consultation note converted to structured fields">
+          <div class="demo__panel">
+            <p class="demo__label">Consultation note</p>
+            <p class="demo__note">Pt c/o dry cough x 5 days, no fever. Dx: acute bronchitis. Rx: Azithromycin 500mg OD x 3d. Review in 1 wk.</p>
+          </div>
+          <svg class="demo__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+          <div class="demo__panel">
+            <p class="demo__label">Structured record</p>
+            <div class="demo__fields">
+              <div class="demo__field"><span>Symptoms</span><span>Dry cough, 5 days</span></div>
+              <div class="demo__field"><span>Diagnosis</span><span>Acute bronchitis</span></div>
+              <div class="demo__field"><span>Medication</span><span>Azithromycin 500 mg, once daily, 3 days</span></div>
+              <div class="demo__field"><span>Follow-up</span><span>1 week</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__head">
+          <h2>Clinical notes, finally usable.</h2>
+          <p class="lead">Most consultation notes live on paper or in scans that nobody can search. Prescribe makes them readable by software without changing how doctors write.</p>
+        </div>
+        <div class="grid grid--3">
+          <article class="card">
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M8 12h8"/></svg>
+            </div>
+            <h3>Reads handwriting and print</h3>
+            <p>OCR trained to handle the abbreviations, shorthand and messy handwriting common in clinical notes.</p>
+          </article>
+          <article class="card">
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3H5a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V8l-5-5H9zM14 3v5h5M8 13h8M8 17h5"/></svg>
+            </div>
+            <h3>Understands medical language</h3>
+            <p>NLP identifies symptoms, diagnoses, drugs, doses and follow-up instructions, then labels each one.</p>
+          </article>
+          <article class="card">
+            <div class="icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            </div>
+            <h3>Searchable and reviewable</h3>
+            <p>Find any patient visit by condition or medication, and check every extracted field against the original note.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tint" id="how-it-works">
+      <div class="container">
+        <div class="section__head">
+          <h2>How it works</h2>
+        </div>
+        <ol class="steps">
+          <li>
+            <h3>Upload a note</h3>
+            <p>Add a scan or photo of a consultation note.</p>
+          </li>
+          <li>
+            <h3>Prescribe extracts the details</h3>
+            <p>Text is recognised, then sorted into symptoms, diagnosis, medication and follow-up.</p>
+          </li>
+          <li>
+            <h3>Review and save</h3>
+            <p>Check the result next to the original, fix anything that's off, and save it to the record.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--dark">
+      <div class="container cta">
+        <h2>Start turning notes into records.</h2>
+        <p>Create an account and upload your first consultation note.</p>
+        <a href="signup.html" class="btn btn--light btn--lg">Sign up</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <span>&copy; 2026 Prescribe</span>
+      <nav aria-label="Footer">
+        <a href="#about">About</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+</html>
