@@ -1,3 +1,5 @@
+const PROCESS_NOTE_URL = "http://127.0.0.1:8000/process";
+
 async function getCurrentUser() {
     const {
         data: { user },
@@ -72,7 +74,7 @@ async function loadClinicalNotes() {
     notes.forEach(note => {
         const noteElement = document.createElement("a");
         noteElement.classList.add("note-item");
-        noteElement.href = `route.html?note_id=${encodeURIComponent(note.id)}`;
+        noteElement.href = `note.html?note_id=${encodeURIComponent(note.id)}`;
 
         noteElement.innerHTML = `
             <div class="note-item__icon" aria-hidden="true">
@@ -134,12 +136,71 @@ function setupUploadForm() {
         uploadMessage.classList.remove("upload-message--error");
     });
 
-    form.addEventListener("submit", event => {
+    form.addEventListener("submit", async event => {
         event.preventDefault();
 
-        uploadMessage.textContent =
-            "Image uploads are not connected yet. Your image has not been uploaded.";
-        uploadMessage.classList.add("upload-message--error");
+        const file = imageInput.files[0];
+        const filename = filenameInput.value.trim();
+        const submitButton = form.querySelector('button[type="submit"]');
+        const submitButtonText = submitButton.querySelector("span");
+
+        if (!file || !filename) {
+            uploadMessage.textContent = "Choose an image and enter a filename.";
+            uploadMessage.classList.add("upload-message--error");
+            return;
+        }
+
+        submitButton.disabled = true;
+        submitButtonText.textContent = "Uploading...";
+        uploadMessage.textContent = "";
+        uploadMessage.classList.remove("upload-message--error");
+
+        try {
+            const { data: { session }, error: sessionError } =
+                await supabaseClient.auth.getSession();
+
+            if (sessionError) {
+                throw sessionError;
+            }
+
+            if (!session?.access_token) {
+                window.location.href = "login.html";
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("file", file);
+            formData.append("filename", filename);
+
+            const response = await fetch(PROCESS_NOTE_URL, {
+                method: "POST",
+                headers: {
+                    Authorization: `Bearer ${session.access_token}`
+                },
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(
+                    result.detail || "The note could not be uploaded."
+                );
+            }
+
+            uploadMessage.textContent =
+                result.message || "Clinical note uploaded successfully.";
+            form.reset();
+            await loadClinicalNotes();
+        } catch (error) {
+            console.error("Unable to upload clinical note:", error);
+            uploadMessage.textContent =
+                error.message || "The note could not be uploaded. Please try again.";
+            uploadMessage.classList.add("upload-message--error");
+        } finally {
+            submitButton.disabled = false;
+            submitButtonText.textContent = "Submit note";
+        }
     });
 }
 

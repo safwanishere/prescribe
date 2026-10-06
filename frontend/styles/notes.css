@@ -1,0 +1,211 @@
+.note-page {
+    min-height: 100vh;
+    background: #f5f8f5;
+}
+
+.note-header {
+    background: rgba(255, 255, 255, 0.94);
+    border-bottom: 1px solid var(--line);
+}
+
+.note-header__inner {
+    width: min(100% - 2.5rem, 960px);
+    min-height: 4.25rem;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.note-main {
+    width: min(100% - 2.5rem, 820px);
+    margin: 0 auto;
+    padding: clamp(2rem, 6vw, 4rem) 0 2rem;
+}
+
+.note-back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: var(--green-700);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.note-back-link:hover {
+    text-decoration: underline;
+}
+
+.note-heading {
+    margin-bottom: 2rem;
+}
+
+.note-heading .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--green-700);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.eyebrow__dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    background: var(--green-600);
+    border-radius: 50%;
+}
+
+.note-heading__copy {
+    margin-top: 0.75rem;
+    color: var(--muted);
+    font-size: var(--text-lg);
+}
+
+.note-card {
+    padding: clamp(1.25rem, 4vw, 2rem);
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+}
+
+.note-card__heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.note-meta {
+    margin-top: 0.5rem;
+    color: var(--muted);
+    font-size: var(--text-sm);
+}
+
+.note-id {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 1rem;
+    padding: 1rem 0;
+    color: var(--muted);
+    font-size: var(--text-sm);
+}
+
+.note-id code {
+    color: var(--ink);
+    overflow-wrap: anywhere;
+}
+
+.note-message {
+    padding: 1rem;
+    color: var(--muted);
+    background: var(--green-50);
+    border-radius: var(--radius-sm);
+}
+
+.note-output {
+    display: grid;
+    gap: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+.note-output[hidden] {
+    display: none;
+}
+
+.note-field {
+    min-width: 0;
+    padding: 1.15rem 1.25rem;
+    background: #fbfdfb;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+}
+
+.note-field__label {
+    margin-bottom: 0.65rem;
+    color: var(--green-700);
+    font-size: 1rem;
+}
+
+.note-value {
+    margin: 0;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+}
+
+.note-value--empty {
+    color: var(--muted);
+    font-style: italic;
+}
+
+.note-value-list {
+    display: grid;
+    gap: 0.55rem;
+    padding-left: 1.25rem;
+    list-style: disc;
+}
+
+.note-nested-fields {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.note-field--nested {
+    display: grid;
+    grid-template-columns: minmax(8rem, 0.35fr) minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.note-field--nested:last-child {
+    border-bottom: 0;
+}
+
+.note-field--nested dt {
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.note-field--nested dd {
+    min-width: 0;
+    margin: 0;
+}
+
+.note-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 2rem;
+    color: var(--muted);
+    font-size: var(--text-sm);
+}
+
+.footer-mark {
+    display: grid;
+    width: 1.5rem;
+    height: 1.5rem;
+    place-items: center;
+    color: var(--green-700);
+    background: var(--green-100);
+    border-radius: 50%;
+    font-weight: 700;
+}
+
+@media (max-width: 560px) {
+    .note-main,
+    .note-header__inner {
+        width: min(100% - 1.5rem, 820px);
+    }
+
+    .note-field--nested {
+        grid-template-columns: 1fr;
+        gap: 0.35rem;
+    }
+}

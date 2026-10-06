@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5f8f5">
+    <title>Clinical Note - Prescribe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/notes.css">
+</head>
+<body class="note-page">
+    <header class="note-header">
+        <div class="note-header__inner">
+            <a href="dashboard.html" class="brand" aria-label="Back to dashboard">Prescribe</a>
+            <button id="logout-btn" class="btn btn--ghost" type="button">Log out</button>
+        </div>
+    </header>
+
+    <main class="note-main">
+        <a class="note-back-link" href="dashboard.html">← Back to dashboard</a>
+
+        <header class="note-heading">
+            <p class="eyebrow"><span class="eyebrow__dot"></span> Extracted record</p>
+            <h1>Clinical note</h1>
+            <p class="note-heading__copy">Information extracted from your uploaded consultation note.</p>
+        </header>
+
+        <section class="note-card" aria-labelledby="note-data-title">
+            <div class="note-card__heading">
+                <div>
+                    <h2 id="note-data-title">Note details</h2>
+                    <p class="note-meta">Created <time id="note-created-at">Loading…</time></p>
+                </div>
+            </div>
+            <p class="note-id"><span>Note ID</span><code id="note-id">Loading…</code></p>
+
+            <p id="note-message" class="note-message" role="status" aria-live="polite">
+                Loading note information…
+            </p>
+            <div id="note-output" class="note-output" hidden></div>
+        </section>
+
+        <footer class="note-footer">
+            <span class="footer-mark" aria-hidden="true">+</span>
+            <span>Your clinical notes stay private and secure.</span>
+        </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/getnote.js"></script>
+</body>
+</html>
