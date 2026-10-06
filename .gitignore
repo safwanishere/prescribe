@@ -59,10 +59,7 @@ pip-delete-this-directory.txt
 # IDEs / Editors
 # =========================
 .vscode/*
-!.vscode/settings.json
-!.vscode/extensions.json
-!.vscode/tasks.json
-!.vscode/launch.json
+.vscode
 
 .idea/
 *.iml
